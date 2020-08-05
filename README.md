@@ -1,8 +1,8 @@
-# Vue-ts-rem-start
+# vue-mobile-template
 
 ## Description
 
-Vue-cli4, Typescript startup template, use rem adaptation.
+A mobile App template used by Vue, Typescript and Muse-UI.
 
 ## Project setup
 
@@ -27,7 +27,3 @@ yarn build
 ``` bash
 yarn lint
 ```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).

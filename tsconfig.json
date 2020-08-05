@@ -10,13 +10,15 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
+    "resolveJsonModule": true,
     "baseUrl": ".",
     "types": [
       "webpack-env"
     ],
     "paths": {
       "@/*": [
-        "src/*"
+        "/node_modules",
+        "/src"
       ]
     },
     "lib": [
@@ -30,8 +32,6 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
   ],
   "exclude": [
     "node_modules"
