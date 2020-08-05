@@ -1875,6 +1875,11 @@ body-parser@1.19.0:
     raw-body "2.4.0"
     type-is "~1.6.17"
 
+body-scroll-lock@^2.6.1:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/body-scroll-lock/-/body-scroll-lock-2.7.1.tgz#caf3f9c91773af1ffb684cd66ed9137b5b737014"
+  integrity sha512-hS53SQ8RhM0e4DsQ3PKz6Gr2O7Kpdh59TWU98GHjaQznL7y4dFycEPk7pFQAikqBaUSCArkc5E3pe7CWIt2fZA==
+
 bonjour@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/bonjour/-/bonjour-3.5.0.tgz#8e890a183d8ee9a2393b3844c691a42bcf7bc9f5"
@@ -2773,6 +2778,11 @@ crypto-browserify@^3.11.0:
     randombytes "^2.0.0"
     randomfill "^1.0.3"
 
+crypto@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/crypto/-/crypto-1.0.1.tgz#2af1b7cad8175d24c8a1b0778255794a21803037"
+  integrity sha512-VxBKmeNcqQdiUQUW2Tzq0t377b54N2bMtXO/qiLa+6eRRmmC4qT3D4OnTGoT/U6O9aklQ/jTwbOtRMTTY8G0Ig==
+
 css-color-names@0.0.4, css-color-names@^0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
@@ -2976,6 +2986,11 @@ dashdash@^1.12.0:
   integrity sha1-hTz6D3y+L+1d4gMmuN1YEDX24vA=
   dependencies:
     assert-plus "^1.0.0"
+
+dayjs@^1.8.2:
+  version "1.8.32"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.32.tgz#66c48b95c397d9f7907e89bd29f78b3d19d40294"
+  integrity sha512-V91aTRu5btP+uzGHaaOfodckEfBWhmi9foRP7cauAO1PTB8+tZ9o0Jec7q6TIIRY1N4q1IfiKsZunkB/AEWqMQ==
 
 de-indent@^1.0.2:
   version "1.0.2"
@@ -5271,6 +5286,11 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
+keycode@^2.1.9:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/keycode/-/keycode-2.2.0.tgz#3d0af56dc7b8b8e5cba8d0a97f107204eec22b04"
+  integrity sha1-PQr1bce4uOXLqNCpfxByBO7CKwQ=
+
 killable@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/killable/-/killable-1.0.1.tgz#4c8ce441187a061c7474fb87ca08e2a638194892"
@@ -5792,6 +5812,17 @@ multicast-dns@^6.0.1:
     dns-packet "^1.3.1"
     thunky "^1.0.2"
 
+muse-ui@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/muse-ui/-/muse-ui-3.0.2.tgz#f292e8a063d625d35b1dce1b1504bc0cccd78e65"
+  integrity sha512-oIH8wEKQqXA6xbb3HzprxC2xoF7P8G01uvF+Jhs6VtbxQjO7VVkKKFu2Mb2NmhX3mMU2EBCgE8wlTU29ffjkPA==
+  dependencies:
+    body-scroll-lock "^2.6.1"
+    dayjs "^1.8.2"
+    keycode "^2.1.9"
+    normalize-wheel "^1.0.1"
+    resize-observer-polyfill "^1.5.0"
+
 mute-stream@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
@@ -5959,6 +5990,11 @@ normalize-url@^3.0.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-3.3.0.tgz#b2e1c4dc4f7c6d57743df733a4f5978d18650559"
   integrity sha512-U+JJi7duF1o+u2pynbp2zXDW2/PADgC30f0GsHZtRh+HOcXHnw137TrNlyxxRvWW5fjKd3bcLHPxofWuCjaeZg==
+
+normalize-wheel@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/normalize-wheel/-/normalize-wheel-1.0.1.tgz#aec886affdb045070d856447df62ecf86146ec45"
+  integrity sha1-rsiGr/2wRQcNhWRH32Ls+GFG7EU=
 
 npm-run-path@^2.0.0:
   version "2.0.2"
@@ -7245,6 +7281,11 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
+
+resize-observer-polyfill@^1.5.0:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
 resolve-cwd@^2.0.0:
   version "2.0.0"
