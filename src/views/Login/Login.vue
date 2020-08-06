@@ -4,30 +4,37 @@
     <img src="../../assets/logo.png" alt="LoginLogo" class="logo">
 
     <div class="title-container">
-        <p>欢迎使用</p>
+      <p>Welcome</p>
     </div>
 
     <mu-container>
       <mu-form ref="form" :model="validateForm" class="mu-demo-form">
         <mu-form-item icon="account_circle" prop="username" :rules="usernameRules">
-          <mu-text-field placeholder="用户名" v-model="validateForm.username" prop="username"></mu-text-field>
+          <mu-text-field placeholder="Username" v-model="validateForm.username" prop="username"></mu-text-field>
         </mu-form-item>
         <mu-form-item  icon="locked" prop="password" :rules="passwordRules">
-            <mu-text-field  placeholder="密码" v-model="validateForm.password" prop="password" :action-icon="visibility ? 'visibility_off' : 'visibility'" :action-click="() => (visibility = !visibility)" :type="visibility ? 'text' : 'password'"></mu-text-field>
+            <mu-text-field  placeholder="Password" v-model="validateForm.password" prop="password" :action-icon="visibility ? 'visibility_off' : 'visibility'" :action-click="() => (visibility = !visibility)" :type="visibility ? 'text' : 'password'"></mu-text-field>
         </mu-form-item>
         <mu-form-item  icon="code" prop="captcha" :rules="captchaRules">
-          <mu-text-field v-model="validateForm.captcha" placeholder="验证码"></mu-text-field>
+          <mu-text-field v-model="validateForm.captcha" placeholder="Captcha"></mu-text-field>
           <img class="captcha" :src="this.$store.state.captcha.captcha" alt="captcha" @click="changeCaptcha">
         </mu-form-item>
+
+        <div class="tip">
+          <span>Username: Harry</span>
+          <span>Passwrod: 123456</span>
+          <span>Captcha: any</span>
+        </div>
+
         <mu-form-item>
-          <mu-button color="indigo400" @click="submit" round full-width ripple>登录</mu-button>
+          <mu-button color="indigo400" @click="submit" round full-width ripple>Login</mu-button>
         </mu-form-item>
       </mu-form>
     </mu-container>
     
-    <mu-dialog title="提示" width="360" :open.sync="alert">
+    <mu-dialog title="Tip" width="360" :open.sync="alert">
       <p class="alert">{{alertText}}</p>
-      <mu-button slot="actions" flat color="red800" @click="closeSimpleDialog">关闭</mu-button>
+      <mu-button slot="actions" flat color="red800" @click="closeSimpleDialog">Close</mu-button>
     </mu-dialog>
 
     <div class="bio-container">
@@ -46,8 +53,8 @@ import { encrypt } from '../../util/crypto'
 export default class Login extends Vue {
   
   private validateForm: ValidateForm = {
-    username: 'wjy',
-    password: 'rrr123',
+    username: '',
+    password: '',
     captcha: ''
   }
   private visibility = false
@@ -76,7 +83,7 @@ export default class Login extends Vue {
     {
       await this.$store.dispatch('user/getUserInfo', this.validateForm)
       if (this.$store.state.user.userInfo) {
-        if (this.$store.state.userInfo.success === true) {
+        if (this.$store.state.user.userInfo.success === true) {
           // 加密sessionStorage
           let token: string = encrypt(this.$store.state.user.userInfo.token)
           let userInfo: string = encrypt(JSON.stringify(this.$store.state.user.userInfo.user))
@@ -157,6 +164,16 @@ export default class Login extends Vue {
         bottom: 80px;
         right: -50px;
       }
+
+      // 初始密码提示
+      .tip {
+        padding-bottom: 30px;
+        margin-left: 40px;
+        color: #2d3a4b;
+        span {
+          margin: 0 20px;
+        }
+      }
     }
 
     .bio-container {
@@ -170,5 +187,6 @@ export default class Login extends Vue {
     .alert {
       color: $font;
     }
+
   }
 </style>

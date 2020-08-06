@@ -1,5 +1,4 @@
 import service from '../util/service'
-import '../mock/mockServer'
 
 const reqUserInfo = (loginMsg: any) => {
   let promise: Promise<any> = service({

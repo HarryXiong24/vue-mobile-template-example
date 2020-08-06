@@ -1,3 +1,4 @@
 vue.config.js
 postcss.config.js
 /src
+/mock
