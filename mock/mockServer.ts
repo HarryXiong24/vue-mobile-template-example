@@ -12,9 +12,16 @@ Mock.mock('/captcha', 'get', (options: any) => {
 })
 
 Mock.mock('/login', 'post', (options: any) => {
-  console.log(options)
+  let body = JSON.parse(options.body)
 
-  return user
+  if (body.username === "harry" && body.password === "123456") {
+    return user
+  } else {
+    return {
+      msg: "Incorrect username or password!"
+    }
+  }
+
 })
 
 

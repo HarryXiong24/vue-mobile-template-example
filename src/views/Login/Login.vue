@@ -21,7 +21,7 @@
         </mu-form-item>
 
         <div class="tip">
-          <span>Username: Harry</span>
+          <span>Username: harry</span>
           <span>Passwrod: 123456</span>
           <span>Captcha: any</span>
         </div>
@@ -53,9 +53,9 @@ import { encrypt } from '../../util/crypto'
 export default class Login extends Vue {
   
   private validateForm: ValidateForm = {
-    username: '',
-    password: '',
-    captcha: ''
+    username: 'harry',
+    password: '123456',
+    captcha: 'wksv'
   }
   private visibility = false
   private alert = false
@@ -95,10 +95,10 @@ export default class Login extends Vue {
           this.openSimpleDialog(this.$store.state.user.userInfo.msg) 
         }
       } else {
-        this.openSimpleDialog('服务器错误!')
+        this.openSimpleDialog('Server Error!')
       } 
     } else {
-      this.openSimpleDialog('信息不能为空!')
+      this.openSimpleDialog('Please fill out the form!')
     }
   }
 

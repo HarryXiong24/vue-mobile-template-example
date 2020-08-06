@@ -1,5 +1,5 @@
 <template>
-  <mu-appbar style="width: 100%;" color="#1a1a1a" class="topBar">
+  <mu-appbar style="width: 100%;" color="#673ab7" class="topBar">
     <mu-menu slot="left">
       <mu-button icon class="icon" @click="back">
         <mu-icon value="keyboard_arrow_left"></mu-icon>
@@ -7,7 +7,6 @@
     </mu-menu>
     <div slot="default" class="title">
       <div>{{title}}</div>
-      <div>{{time}}</div>
     </div>
   </mu-appbar>
 </template>
@@ -17,7 +16,7 @@ import { Prop, Component, Vue } from 'vue-property-decorator';
 
 
 @Component
-export default class FunctionTop extends Vue {
+export default class NormalTop extends Vue {
   @Prop(String) private title!: string
   private time: string = ''
   private value: string = ''
@@ -25,10 +24,6 @@ export default class FunctionTop extends Vue {
 
   back () {
     this.$router.back()
-  }
-
-  mounted () {
-    
   }
 }
 </script>
