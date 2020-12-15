@@ -1,5 +1,7 @@
 <template>
-  <div class="demo">Come design your page!</div>
+  <div class="demo">
+    Come design your page!
+  </div>
 </template>
 
 <script script lang="ts">
@@ -7,6 +9,7 @@ import { Prop, Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class PageA extends Vue {
+
 
 }
 </script>

@@ -4,17 +4,19 @@
     <NavigationTop :title="headTitle">
     </NavigationTop>
     <mu-row justify-content="center">
-      <router-view/>
+      <keep-alive>
+        <router-view/>
+      </keep-alive>
     </mu-row>
     <!-- 占位用 -->
     <div class="bottom"></div>
     <mu-row justify-content="center" class="footerGuide">
       <mu-col span="12">
         <mu-bottom-nav :value.sync="shift" ripple color="amber800" @change="getHead">
-          <mu-bottom-nav-item value="PageA" title="NavigationA" icon="accessibility_new" to="/Init/PageA" replace></mu-bottom-nav-item>
-          <mu-bottom-nav-item value="PageB" title="NavigationB" icon="assignment" to="/Init/PageB" replace></mu-bottom-nav-item>
-          <mu-bottom-nav-item value="PageC" title="NavigationC" icon="assessment" to="/Init/PageC" replace></mu-bottom-nav-item>
-          <mu-bottom-nav-item value="PageD" title="NavigationD" icon="info" to="/Init/PageD" replace></mu-bottom-nav-item>
+          <mu-bottom-nav-item value="PageA" title="电影推荐" icon="accessibility_new" to="/Init/PageA" replace></mu-bottom-nav-item>
+          <mu-bottom-nav-item value="PageB" title="国内大片" icon="assignment" to="/Init/PageB" replace></mu-bottom-nav-item>
+          <mu-bottom-nav-item value="PageC" title="国外大片" icon="assessment" to="/Init/PageC" replace></mu-bottom-nav-item>
+          <mu-bottom-nav-item value="PageD" title="综合数据分析" icon="info" to="/Init/PageD" replace></mu-bottom-nav-item>
         </mu-bottom-nav>
       </mu-col>
     </mu-row>
@@ -36,13 +38,13 @@ export default class Init extends Vue {
 
   getHead() {
     if (this.shift === 'PageA') {
-      this.headTitle = 'PageA'
+      this.headTitle = '电影推荐'
     } else if (this.shift === 'PageB') {
-      this.headTitle = 'PageB'
+      this.headTitle = '国内大片'
     } else if (this.shift === 'PageC') {
-      this.headTitle = 'PageC'
+      this.headTitle = '国外大片'
     } else if (this.shift === 'PageD') {
-      this.headTitle = 'PageD'
+      this.headTitle = '综合数据分析'
     }
   }
 
