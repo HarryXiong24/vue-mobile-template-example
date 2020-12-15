@@ -3,8 +3,8 @@
   <div class="movieList">
     <mu-divider></mu-divider>
 
-    <mu-list-item avatar :ripple="true" button @click="enterDetail(list.movieID)">
-      <mu-list-item-content>
+    <mu-list-item avatar :ripple="true">
+      <mu-list-item-content @click="enterDetail(list.movieID)">
         <mu-list-item-title>{{list.movieName}}</mu-list-item-title>
         <mu-list-item-sub-title style="color: rgba(0, 0, 0, .87)">{{list.movieActors}}</mu-list-item-sub-title>
         <mu-list-item-sub-title>
@@ -29,7 +29,7 @@ export default class MovieList extends Vue {
   public selects: any = false
 
   enterDetail(movieID: number) {
-    this.$router.push(`/MessageContent?InfoId=${movieID}`)
+    this.$router.push(`/MovieDetail?MovieId=${movieID}`)
   }
 
 }

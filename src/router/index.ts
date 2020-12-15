@@ -7,6 +7,7 @@ const PageB = () => import('../views/PageB/PageB.vue')
 const PageC = () => import('../views/PageC/PageC.vue')
 const PageD = () => import('../views/PageD/PageD.vue')
 const Setting = () => import('../views/Setting/Setting.vue')
+const MovieDetail = () => import('../views/MovieDetail/MovieDetail.vue')
 
 Vue.use(VueRouter);
 
@@ -59,6 +60,11 @@ const routes: Array<RouteConfig> = [
     name: "Setting",
     component: Setting,
     meta: { title: 'Setting', requiresAuth: true }
+  },
+  {
+    path: '/MovieDetail',
+    component: MovieDetail,
+    meta: { title: 'MovieDetail', requiresAuth: true }
   },
 ];
 

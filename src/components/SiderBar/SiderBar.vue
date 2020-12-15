@@ -9,7 +9,7 @@
       <mu-card class="card">
         <mu-card-header title="Harry">
           <mu-avatar slot="avatar" size="50">
-            <img src="../../assets/logo2.png">
+            <img src="../../assets/images/logo.png">
           </mu-avatar>
         </mu-card-header>
       </mu-card>

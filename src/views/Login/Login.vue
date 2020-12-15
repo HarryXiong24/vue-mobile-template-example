@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
 
-    <img src="../../assets/logo.png" alt="LoginLogo" class="logo">
+    <img src="../../assets/images/logo.png" alt="LoginLogo" class="logo">
 
     <div class="title-container">
       <p>Welcome</p>
