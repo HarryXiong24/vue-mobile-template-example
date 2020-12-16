@@ -32,7 +32,8 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/**/*.vue", "mock/types/captcha.d.ts",
+    "src/**/*.vue", 
+    "mock/types",
   ],
   "exclude": [
     "node_modules"

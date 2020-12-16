@@ -20,7 +20,7 @@
           调皮的阳光掀动了四月的心帘，温暖如约的歌声渐起。
         </mu-card-text>
         <mu-card-actions class="action">
-          <mu-button flat class="button">发布评论</mu-button>
+          <mu-button flat class="button" @click="comment">发布评论</mu-button>
         </mu-card-actions>
       </mu-card>
     </div>
@@ -81,6 +81,10 @@ export default class MovieDetail extends Vue {
     },
   ]
 
+  comment() {
+    let CommentId = this.$route.query.MovieId
+    this.$router.push(`/Comment?CommentId=${CommentId}`)
+  }
 
   // async getMessageContent() {
   //   let data = {

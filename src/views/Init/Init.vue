@@ -13,9 +13,7 @@
     <mu-row justify-content="center" class="footerGuide">
       <mu-col span="12">
         <mu-bottom-nav :value.sync="shift" ripple color="amber800" @change="getHead">
-          <mu-bottom-nav-item value="PageA" title="电影推荐" icon="accessibility_new" to="/Init/PageA" replace></mu-bottom-nav-item>
-          <mu-bottom-nav-item value="PageB" title="国内大片" icon="assignment" to="/Init/PageB" replace></mu-bottom-nav-item>
-          <mu-bottom-nav-item value="PageC" title="国外大片" icon="assessment" to="/Init/PageC" replace></mu-bottom-nav-item>
+          <mu-bottom-nav-item value="PageB" title="电影列表" icon="assignment" to="/Init/PageB" replace></mu-bottom-nav-item>
           <mu-bottom-nav-item value="PageD" title="综合数据分析" icon="info" to="/Init/PageD" replace></mu-bottom-nav-item>
         </mu-bottom-nav>
       </mu-col>
@@ -33,16 +31,12 @@ import NavigationTop from '../../components/NavigationTop/NavigationTop.vue';
   }
 })
 export default class Init extends Vue {
-  private shift: string = 'PageA'
+  private shift: string = 'PageB'
   public headTitle: string = ''
 
   getHead() {
-    if (this.shift === 'PageA') {
-      this.headTitle = '电影推荐'
-    } else if (this.shift === 'PageB') {
-      this.headTitle = '国内大片'
-    } else if (this.shift === 'PageC') {
-      this.headTitle = '国外大片'
+    if (this.shift === 'PageB') {
+      this.headTitle = '电影列表'
     } else if (this.shift === 'PageD') {
       this.headTitle = '综合数据分析'
     }
