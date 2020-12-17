@@ -242,7 +242,7 @@ export let heatMapData = {
   },
   series: [
     {
-      name: "Punch Card",
+      name: "当日上座率",
       type: "heatmap",
       data: data,
       label: {

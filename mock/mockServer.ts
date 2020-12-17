@@ -1,5 +1,5 @@
 import Mock from 'mockjs'
-import { user, captcha } from './data';
+import { user, captcha, movieList, movieComment } from './data';
 import { Random } from 'mockjs';
 
 // 返回登录的接口
@@ -22,6 +22,23 @@ Mock.mock('/login', 'post', (options: any) => {
     }
   }
 
+})
+
+Mock.mock('/register', 'post', (options: any) => {
+  let body = JSON.parse(options.body)
+  console.log(body)
+  return {
+    success: true,
+    msg: "注册成功!"
+  }
+})
+
+Mock.mock('/movieInfo', 'get', (options: any) => {
+  return movieList
+})
+
+Mock.mock('/movieComment', 'get', (options: any) => {
+  return movieComment
 })
 
 

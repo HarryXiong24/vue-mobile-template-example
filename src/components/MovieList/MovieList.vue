@@ -6,7 +6,6 @@
     <mu-list-item avatar :ripple="true">
       <mu-list-item-content @click="enterDetail(list.movieID)">
         <mu-list-item-title>{{list.movieName}}</mu-list-item-title>
-        <mu-list-item-sub-title style="color: rgba(0, 0, 0, .87)">{{list.movieActors}}</mu-list-item-sub-title>
         <mu-list-item-sub-title>
           {{list.movieInfo}}
         </mu-list-item-sub-title>

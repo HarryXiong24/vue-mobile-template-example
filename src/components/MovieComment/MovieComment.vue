@@ -1,5 +1,5 @@
 <template>
-  <div class="movieComment">
+  <div class="movieComment" v-show="showComment">
     <mu-divider></mu-divider>
       
     <mu-list-item avatar :ripple="false" button>
@@ -36,6 +36,7 @@ export default class MovieComment extends Vue {
   private alertText = ''
   
   private adminShow = false;
+  private showComment = true;
 
   judgeAdmin() {
     if ( decrypt(sessionStorage.getItem("token")) === 'admin') {
@@ -50,7 +51,7 @@ export default class MovieComment extends Vue {
   }
 
   deleteComment() {
-
+    this.showComment = false
   }
 
 }

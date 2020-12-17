@@ -67,71 +67,16 @@ export default class PageB extends Vue {
     author: 'mokayi'
   }]
   
-  public movieList: any = [
-    {
-      movieID: 1,
-      movieName: "金刚川",
-      movieActors: "邓超、吴京、张译主演",
-      movieInfo: "让你重温那个激荡磅礴的岁月",
-      moviePoint: 9.2,
-    },
-    {
-      movieID: 1,
-      movieName: "金刚川",
-      movieActors: "邓超、吴京、张译主演",
-      movieInfo: "让你重温那个激荡磅礴的岁月",
-      moviePoint: 9.2,
-    },
-    {
-      movieID: 1,
-      movieName: "金刚川",
-      movieActors: "邓超、吴京、张译主演",
-      movieInfo: "让你重温那个激荡磅礴的岁月",
-      moviePoint: 9.2,
-    },
-    {
-      movieID: 1,
-      movieName: "金刚川",
-      movieActors: "邓超、吴京、张译主演",
-      movieInfo: "让你重温那个激荡磅礴的岁月",
-      moviePoint: 9.2,
-    },
-    {
-      movieID: 1,
-      movieName: "金刚川",
-      movieActors: "邓超、吴京、张译主演",
-      movieInfo: "让你重温那个激荡磅礴的岁月",
-      moviePoint: 9.2,
-    },
-    {
-      movieID: 1,
-      movieName: "金刚川",
-      movieActors: "邓超、吴京、张译主演",
-      movieInfo: "让你重温那个激荡磅礴的岁月",
-      moviePoint: 9.2,
-    },
-    {
-      movieID: 1,
-      movieName: "金刚川",
-      movieActors: "邓超、吴京、张译主演",
-      movieInfo: "让你重温那个激荡磅礴的岁月",
-      moviePoint: 9.2,
-    },
-    {
-      movieID: 1,
-      movieName: "金刚川",
-      movieActors: "邓超、吴京、张译主演",
-      movieInfo: "让你重温那个激荡磅礴的岁月",
-      moviePoint: 9.2,
-    },
-    {
-      movieID: 1,
-      movieName: "金刚川",
-      movieActors: "邓超、吴京、张译主演",
-      movieInfo: "让你重温那个激荡磅礴的岁月",
-      moviePoint: 9.2,
-    },
-  ]
+  public movieList: any = []
+
+  async getList() {
+    await this.$store.dispatch('movieInfo/getMovieList')
+    this.movieList = this.$store.state.movieInfo.movieList
+  }
+
+  mounted() {
+    this.getList() 
+  }
 }
 </script>
 

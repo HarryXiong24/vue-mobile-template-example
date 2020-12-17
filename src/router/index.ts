@@ -59,12 +59,12 @@ const routes: Array<RouteConfig> = [
   {
     path: '/MovieDetail',
     component: MovieDetail,
-    meta: { title: 'MovieDetail', requiresAuth: true }
+    meta: { title: 'MovieDetail', requiresAuth: true, keepAlive: true }
   },
   {
     path: '/Comment',
     component: Comment,
-    meta: { title: 'Comment', requiresAuth: true }
+    meta: { title: 'Comment', requiresAuth: true, keepAlive: true }
   },
   {
     path: "/LaunchMovie",

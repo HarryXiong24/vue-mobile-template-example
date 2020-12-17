@@ -6,7 +6,7 @@
 
     <div class="card">
       <mu-card style="width: 100%; max-width: 375px; margin: 0 auto;" raised>
-        <mu-card-header title="小猪猪发布" sub-title="2020.12.15">
+        <mu-card-header title="小猪猪发布">
           <mu-avatar slot="avatar">
             <img src="../../assets/images/logo.png">
           </mu-avatar>
@@ -14,7 +14,7 @@
         <mu-card-media title="金刚川" sub-title="重温热血时代">
           <img src="../../assets/images/logo.png">
         </mu-card-media>
-        <mu-card-title title="评分9.2" sub-title="邓超，吴京，张译主演"></mu-card-title>
+        <mu-card-title title="评分9.2"></mu-card-title>
         <mu-card-text>
           散落在指尖的阳光，我试着轻轻抓住光影的踪迹，它却在眉宇间投下一片淡淡的阴影。
           调皮的阳光掀动了四月的心帘，温暖如约的歌声渐起。
@@ -54,37 +54,23 @@ export default class MovieDetail extends Vue {
 
   }
 
-  private movieComment: any = [
-    {
-      name: "爱江山",
-      comment: "实在编不下去了,哈哈哈哈哈哈",
-      date: "2020.11.5",
-      point: 9.4
-    },
-    {
-      name: "爱美人",
-      comment: "我们去看电影，最近有部烂片上映，又有吐槽的了",
-      date: "2020.11.8",
-      point: 9.1
-    },
-    {
-      name: "潇洒还帅呢",
-      comment: "哇去实在编不下去，这就是个demo",
-      date: "2020.11.8",
-      point: 9.4
-    },
-    {
-      name: "LOL",
-      comment: "人生苦短，必须性感",
-      date: "2020.11.10",
-      point: 9.3
-    },
-  ]
+  private movieComment: any = []
+
+  async getComment(movieID: any) {
+    await this.$store.dispatch('movieComment/getMovieComment', movieID)
+    this.movieComment = this.$store.state.movieComment.movieComment
+  }
+
+  mounted() {
+    this.getComment(this.$route.query.MovieId) 
+  }
 
   comment() {
     let CommentId = this.$route.query.MovieId
     this.$router.push(`/Comment?CommentId=${CommentId}`)
   }
+
+
 
   // async getMessageContent() {
   //   let data = {
