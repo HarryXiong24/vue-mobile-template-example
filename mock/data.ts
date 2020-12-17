@@ -5,7 +5,7 @@ export const captcha = svg
 
 export const user = {
   success: true,
-  token: Random.string(16),
+  token: 'admin',
   user: {
     name: Random.cname(),
     age: Random.integer(20, 50)

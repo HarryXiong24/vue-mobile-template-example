@@ -16,6 +16,7 @@
         <mu-checkbox color="yellow700" v-model="selects" value="value1" uncheck-icon="star_border" checked-icon="star"></mu-checkbox>
       </mu-list-item-action>
     </mu-list-item>
+    
   </div>
 
 </template>

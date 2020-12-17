@@ -8,6 +8,7 @@ const Setting = () => import('../views/Setting/Setting.vue')
 const MovieDetail = () => import('../views/MovieDetail/MovieDetail.vue')
 const Comment = () => import('../views/Comment/Comment.vue')
 const Register = () => import('../views/Register/Register.vue')
+const LaunchMovie = () => import('../views/LaunchMovie/LaunchMovie.vue')
 
 Vue.use(VueRouter);
 
@@ -64,6 +65,12 @@ const routes: Array<RouteConfig> = [
     path: '/Comment',
     component: Comment,
     meta: { title: 'Comment', requiresAuth: true }
+  },
+  {
+    path: "/LaunchMovie",
+    name: "LaunchMovie",
+    component: LaunchMovie,
+    meta: { title: 'LaunchMovie', requiresAuth: true },
   },
 ];
 

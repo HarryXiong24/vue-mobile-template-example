@@ -15,18 +15,21 @@
       </mu-card>
 
       <mu-list class="list">
-        <mu-list-item button>
+
+        <mu-list-item button @click="newMovie">
           <mu-list-item-action>
-            <mu-icon value="inbox"></mu-icon>
+            <mu-icon value="grade"></mu-icon>
           </mu-list-item-action>
-          <mu-list-item-title>账户信息</mu-list-item-title>
+          <mu-list-item-title>用户信息</mu-list-item-title>
         </mu-list-item>
-        <mu-list-item button>
+
+        <mu-list-item button @click="newMovie" v-show="adminShow">
           <mu-list-item-action>
             <mu-icon value="grade"></mu-icon>
           </mu-list-item-action>
           <mu-list-item-title>发布电影信息</mu-list-item-title>
         </mu-list-item>
+
         <mu-list-item button @click="logout">
           <mu-list-item-action>
             <mu-icon value="reply"></mu-icon>
@@ -35,6 +38,7 @@
             <mu-list-item-title>退出账户</mu-list-item-title>
           </mu-list-item-content>
         </mu-list-item>
+
       </mu-list>
 
       <mu-row class="bottom">
@@ -47,12 +51,18 @@
 </template>
 
 <script lang="ts">
+import { decrypt } from '../../util/crypto';
 import { Prop, Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class SideBar extends Vue {
   private open: boolean = false;
   private docked: boolean = false
+
+  private alert = false
+  private alertText = ''
+
+  public adminShow = false;
 
   logout(): void {
     sessionStorage.removeItem('token')
@@ -63,6 +73,23 @@ export default class SideBar extends Vue {
   goSetting(): void {
     this.$router.push('/Setting')
   }
+
+  newMovie(): void {
+    this.$router.push("/LaunchMovie")
+  }
+
+  judgeAdmin() {
+    if ( decrypt(sessionStorage.getItem("token")) === 'admin') {
+      this.adminShow = true;
+    } else {
+      this.adminShow = false
+    }
+  }
+
+  mounted() {
+    this.judgeAdmin()
+  }
+
 }
 </script>
 

@@ -30,7 +30,7 @@
 
     </mu-form>
 
-     <mu-flex justify-content="center" align-items="center">
+    <mu-flex justify-content="center" align-items="center">
       <mu-button round color="success" @click="submit">提交!</mu-button>
     </mu-flex>
 

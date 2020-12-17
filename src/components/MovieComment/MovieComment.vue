@@ -16,23 +16,53 @@
         </mu-list-item-sub-title>
       </mu-list-item-content>
     </mu-list-item>
+
+    <mu-button flat class="delete" @click="deleteComment" v-show="adminShow">
+      <mu-icon right value="delete"></mu-icon>
+    </mu-button>
+
+
   </div>
 </template>
 
 <script lang="ts">
 import { Prop, Component, Vue } from 'vue-property-decorator';
+import { decrypt } from '../../util/crypto';
 
 @Component
 export default class MovieComment extends Vue {
   @Prop(Object) public list: any
+  private alert = false
+  private alertText = ''
+  
+  private adminShow = false;
+
+  judgeAdmin() {
+    if ( decrypt(sessionStorage.getItem("token")) === 'admin') {
+      this.adminShow = true;
+    } else {
+      this.adminShow = false
+    }
+  }
+
+  mounted() {
+    this.judgeAdmin()
+  }
+
+  deleteComment() {
+
+  }
 
 }
 </script>
 
 <style lang="scss">
-  .demo {
-    font-size: 100px;
-    margin-top: 1200px;
-    color: #2d3a4b;
+  .movieComment {
+    position: relative;
+    .delete {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
   }
 </style>
