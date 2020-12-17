@@ -1,9 +1,14 @@
 <template>
   <div class="pageD">
 
-    <p class="subTitle1">Top榜</p>
+    <mu-tabs :value.sync="active1" inverse color="secondary" text-color="rgba(0, 0, 0, .54)"  center full-width>
+      <mu-tab>Top榜</mu-tab>
+      <mu-tab>大片票房</mu-tab>
+      <mu-tab>观影热度</mu-tab>
+    </mu-tabs>
 
-    <mu-row>
+    <mu-row v-if="active1 === 0">
+      <p class="subTitle1">Top榜</p>
       <mu-col span="12" lg="4" sm="6">
         <mu-carousel transition="fade" interval="2000" class="carousel">
 
@@ -28,15 +33,14 @@
       </mu-col>
     </mu-row>
 
-    <p class="subTitle1">近期票房排名</p>
-
-    <div class="chart">
+    <div class="chart" v-if="active1 === 1">
+      <p class="subTitle1">大片票房</p>
       <v-chart :options="lineChartOptions" class="echarts"></v-chart>
     </div>
 
-    <p class="subTitle1">近期观影人次信息</p>
 
-    <div class="chart">
+    <div class="chart" v-if="active1 === 2">
+      <p class="subTitle1">近期观影信息</p>
       <v-chart :options="heatMapOptions" class="echarts2"></v-chart>
     </div>
 
@@ -66,6 +70,8 @@ export default class PageD extends Vue {
   public lineChartOptions: any = lineData; 
   public heatMapOptions: any = heatMapData;
 
+  public active1: number = 0;
+
 }
 </script>
 
@@ -84,11 +90,11 @@ export default class PageD extends Vue {
     }
 
     .carousel {
-      height: 1000px;
+      height: 1800px;
       width: 100%;
       .item {
         .img {
-          height: 1000px;
+          height: 1800px;
           width: 100%;
         }
       }

@@ -1,20 +1,19 @@
 <template>
   <mu-paper :z-depth="0">
-    <NormalTop title="setting"></NormalTop>
+    <NormalTop title="用户设置"></NormalTop>
     <mu-list textline="two-line">
       <mu-list-item>
         <mu-list-item-content>
-          <mu-list-item-title>Notification and information settings</mu-list-item-title>
-          <mu-list-item-sub-title>Always break</mu-list-item-sub-title>
+          <mu-list-item-title>通知和消息设置</mu-list-item-title>
         </mu-list-item-content>
       </mu-list-item>
     </mu-list>
     <mu-divider></mu-divider>
     <mu-list>
-        <mu-sub-header>Sound on setting</mu-sub-header>
+        <mu-sub-header>提示音设置</mu-sub-header>
         <mu-list-item button :ripple="false" @click="events = !events">
           <mu-list-item-title>
-            Events and reminders
+            事件提醒
           </mu-list-item-title>
           <mu-list-item-action>
             <mu-switch v-model="events" readonly></mu-switch>
@@ -22,7 +21,7 @@
         </mu-list-item>
         <mu-list-item button :ripple="false" @click="calls = !calls">
           <mu-list-item-title>
-            Phone
+            消息提醒
           </mu-list-item-title>
           <mu-list-item-action>
             <mu-switch v-model="calls" readonly></mu-switch>
@@ -30,7 +29,7 @@
         </mu-list-item>
         <mu-list-item button :ripple="false" @click="messages = !messages">
           <mu-list-item-title>
-            Message
+            信息提醒
           </mu-list-item-title>
           <mu-list-item-action>
             <mu-switch v-model="messages" readonly></mu-switch>
@@ -38,13 +37,13 @@
         </mu-list-item>
       </mu-list>
     <mu-list>
-      <mu-sub-header>Notification settings</mu-sub-header>
+      <mu-sub-header>通知设置</mu-sub-header>
       <mu-list-item button :ripple="false" @click="notifications = !notifications">
         <mu-list-item-action>
           <mu-checkbox v-model="notifications" readonly></mu-checkbox>
         </mu-list-item-action>
         <mu-list-item-title>
-          Notification
+          消息通知
         </mu-list-item-title>
       </mu-list-item>
       <mu-list-item button :ripple="false" @click="sounds = !sounds">
@@ -52,7 +51,7 @@
           <mu-checkbox v-model="sounds" readonly></mu-checkbox>
         </mu-list-item-action>
         <mu-list-item-title>
-          Sound
+          声音通知
         </mu-list-item-title>
       </mu-list-item>
       <mu-list-item button :ripple="false" @click="videoSounds = !videoSounds">
@@ -60,7 +59,7 @@
           <mu-checkbox v-model="videoSounds" readonly></mu-checkbox>
         </mu-list-item-action>
         <mu-list-item-title>
-          Video Sound
+          视频通知
         </mu-list-item-title>
       </mu-list-item>
     </mu-list>

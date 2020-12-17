@@ -4,7 +4,7 @@
     <img src="../../assets/images/logo.png" alt="LoginLogo" class="logo">
 
     <div class="title-container">
-      <p>Welcome</p>
+      <p>在线影评系统</p>
     </div>
 
     <mu-container>
@@ -20,15 +20,11 @@
           <img class="captcha" :src="this.$store.state.captcha.captcha" alt="captcha" @click="changeCaptcha">
         </mu-form-item>
 
-        <div class="tip">
-          <span>Username: harry</span>
-          <span>Passwrod: 123456</span>
-          <span>Captcha: any</span>
-        </div>
-
         <mu-form-item>
-          <mu-button color="indigo400" @click="submit" round full-width ripple>Login</mu-button>
+          <mu-button color="indigo400" @click="submit" round full-width ripple>登录</mu-button>
+          <mu-button color="indigo400" @click="register" round full-width ripple>注册</mu-button>
         </mu-form-item>
+
       </mu-form>
     </mu-container>
     
@@ -48,6 +44,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 import { ValidateForm } from './constraint'
 import { encrypt } from '../../util/crypto'
+import router from '../../router/index';
 
 @Component
 export default class Login extends Vue {
@@ -95,10 +92,10 @@ export default class Login extends Vue {
           this.openSimpleDialog(this.$store.state.user.userInfo.msg) 
         }
       } else {
-        this.openSimpleDialog('Server Error!')
+        this.openSimpleDialog('服务器错误!')
       } 
     } else {
-      this.openSimpleDialog('Please fill out the form!')
+      this.openSimpleDialog('请填写完表格!')
     }
   }
 
@@ -110,6 +107,10 @@ export default class Login extends Vue {
   closeSimpleDialog(): void {
     this.alert = false
     this.alertText = ''
+  }
+
+  register() {
+    this.$router.push("/Register")
   }
 
   async changeCaptcha() {

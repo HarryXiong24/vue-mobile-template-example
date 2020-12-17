@@ -19,39 +19,27 @@
           <mu-list-item-action>
             <mu-icon value="inbox"></mu-icon>
           </mu-list-item-action>
-          <mu-list-item-title>Demo1</mu-list-item-title>
+          <mu-list-item-title>账户信息</mu-list-item-title>
         </mu-list-item>
         <mu-list-item button>
           <mu-list-item-action>
             <mu-icon value="grade"></mu-icon>
           </mu-list-item-action>
-          <mu-list-item-title>Demo2</mu-list-item-title>
-        </mu-list-item>
-        <mu-list-item button>
-          <mu-list-item-action>
-            <mu-icon value="send"></mu-icon>
-          </mu-list-item-action>
-          <mu-list-item-title>Demo3</mu-list-item-title>
-        </mu-list-item>
-        <mu-list-item button>
-          <mu-list-item-action>
-            <mu-icon value="drafts"></mu-icon>
-          </mu-list-item-action>
-          <mu-list-item-title>Demo4</mu-list-item-title>
+          <mu-list-item-title>发布电影信息</mu-list-item-title>
         </mu-list-item>
         <mu-list-item button @click="logout">
           <mu-list-item-action>
             <mu-icon value="reply"></mu-icon>
           </mu-list-item-action>
           <mu-list-item-content>
-            <mu-list-item-title>Logout</mu-list-item-title>
+            <mu-list-item-title>退出账户</mu-list-item-title>
           </mu-list-item-content>
         </mu-list-item>
       </mu-list>
 
       <mu-row class="bottom">
-        <mu-button flat color="amber800" @click="goSetting">Setting</mu-button>
-        <mu-button flat color="amber800" @click="open = false">Close</mu-button>
+        <mu-button flat color="amber800" @click="goSetting">设置</mu-button>
+        <mu-button flat color="amber800" @click="open = false">关闭</mu-button>
       </mu-row>
 
     </mu-drawer>

@@ -7,6 +7,7 @@ const PageD = () => import('../views/PageD/PageD.vue')
 const Setting = () => import('../views/Setting/Setting.vue')
 const MovieDetail = () => import('../views/MovieDetail/MovieDetail.vue')
 const Comment = () => import('../views/Comment/Comment.vue')
+const Register = () => import('../views/Register/Register.vue')
 
 Vue.use(VueRouter);
 
@@ -16,6 +17,12 @@ const routes: Array<RouteConfig> = [
     name: "Login",
     component: Login,
     meta: { title: 'Login', requiresAuth: true },
+  },
+  {
+    path: "/Register",
+    name: "Register",
+    component: Register,
+    meta: { title: 'Register', requiresAuth: true },
   },
   {
     path: '/Init',

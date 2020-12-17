@@ -14,17 +14,12 @@
       <mu-list slot="content">
         <mu-list-item button>
           <mu-list-item-content>
-            <mu-list-item-title>FuntionA</mu-list-item-title>
+            <mu-list-item-title>扫一扫</mu-list-item-title>
           </mu-list-item-content>
         </mu-list-item>
         <mu-list-item button>
           <mu-list-item-content>
-            <mu-list-item-title>FuntionB</mu-list-item-title>
-          </mu-list-item-content>
-        </mu-list-item>
-        <mu-list-item button>
-          <mu-list-item-content>
-            <mu-list-item-title>FuntionC</mu-list-item-title>
+            <mu-list-item-title>在线购票</mu-list-item-title>
           </mu-list-item-content>
         </mu-list-item>
       </mu-list>
