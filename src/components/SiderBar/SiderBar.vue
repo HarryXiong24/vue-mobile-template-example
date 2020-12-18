@@ -7,7 +7,7 @@
     <mu-drawer class="drawer" width="76%" :open.sync="open" :docked="docked">
 
       <mu-card class="card">
-        <mu-card-header title="Harry">
+        <mu-card-header :title="userMessage.username">
           <mu-avatar slot="avatar" size="50">
             <img src="../../assets/images/logo.png">
           </mu-avatar>
@@ -16,7 +16,7 @@
 
       <mu-list class="list">
 
-        <mu-list-item button @click="newMovie">
+        <mu-list-item button @click="toUserInfo">
           <mu-list-item-action>
             <mu-icon value="grade"></mu-icon>
           </mu-list-item-action>
@@ -53,6 +53,7 @@
 <script lang="ts">
 import { decrypt } from '../../util/crypto';
 import { Prop, Component, Vue } from 'vue-property-decorator';
+import { user } from '../../../mock/data';
 
 @Component
 export default class SideBar extends Vue {
@@ -62,7 +63,9 @@ export default class SideBar extends Vue {
   private alert = false
   private alertText = ''
 
-  public adminShow = false;
+  public adminShow = false
+
+  public userMessage: any = {}
 
   logout(): void {
     sessionStorage.removeItem('token')
@@ -79,15 +82,24 @@ export default class SideBar extends Vue {
   }
 
   judgeAdmin() {
-    if ( decrypt(sessionStorage.getItem("token")) === 'admin') {
+    if ( this.userMessage.token === 'admin') {
       this.adminShow = true;
     } else {
       this.adminShow = false
     }
   }
 
+  getUserInfo() {
+    this.userMessage = JSON.parse(decrypt(sessionStorage.getItem("userInfo")))
+  }
+
   mounted() {
+    this.getUserInfo()
     this.judgeAdmin()
+  }
+
+  toUserInfo() {
+    this.$router.push('/userInfo')
   }
 
 }

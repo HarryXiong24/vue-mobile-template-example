@@ -1,4 +1,4 @@
-import { Random } from 'mockjs';
+import { Random, mock } from 'mockjs';
 import svg from './img/captcha.svg'
 
 export const captcha = svg
@@ -6,10 +6,8 @@ export const captcha = svg
 export const user = {
   success: true,
   token: 'admin',
-  user: {
-    name: Random.cname(),
-    age: Random.integer(20, 50)
-  }
+  username: Random.cname(),
+  msg: '登录成功'
 }
 
 export const movieList: any = [

@@ -9,6 +9,7 @@ const MovieDetail = () => import('../views/MovieDetail/MovieDetail.vue')
 const Comment = () => import('../views/Comment/Comment.vue')
 const Register = () => import('../views/Register/Register.vue')
 const LaunchMovie = () => import('../views/LaunchMovie/LaunchMovie.vue')
+const UserInfo = () => import('../views/UserInfo/UserInfo.vue')
 
 Vue.use(VueRouter);
 
@@ -24,6 +25,12 @@ const routes: Array<RouteConfig> = [
     name: "Register",
     component: Register,
     meta: { title: 'Register', requiresAuth: true },
+  },
+  {
+    path: "/UserInfo",
+    name: "UserInfo",
+    component: UserInfo,
+    meta: { title: 'UserInfo', requiresAuth: true },
   },
   {
     path: '/Init',
@@ -54,7 +61,7 @@ const routes: Array<RouteConfig> = [
     path: '/Setting',
     name: "Setting",
     component: Setting,
-    meta: { title: 'Setting', requiresAuth: true }
+    meta: { title: 'Setting', requiresAuth: true, keepAlive: true }
   },
   {
     path: '/MovieDetail',

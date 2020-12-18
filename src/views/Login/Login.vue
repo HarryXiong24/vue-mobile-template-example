@@ -82,10 +82,8 @@ export default class Login extends Vue {
       if (this.$store.state.user.userInfo) {
         if (this.$store.state.user.userInfo.success === true) {
           // 加密sessionStorage
-          let token: string = encrypt(this.$store.state.user.userInfo.token)
-          let userInfo: string = encrypt(JSON.stringify(this.$store.state.user.userInfo.user))
+          let userInfo: string = encrypt(JSON.stringify(this.$store.state.user.userInfo))
           // 存入sessionStorage
-          sessionStorage.setItem("token", token)
           sessionStorage.setItem("userInfo", userInfo)
           this.$router.replace('/Init')
         } else {
