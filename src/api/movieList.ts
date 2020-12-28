@@ -2,7 +2,7 @@ import service from '../util/service'
 
 const reqMovieList = () => {
   let promise: Promise<any> = service({
-    url: '/movieInfo',
+    url: '/Movieinfo',
     method: 'get',
   })
 

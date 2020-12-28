@@ -2,7 +2,7 @@ import service from '../util/service'
 
 const reqUserInfo = (loginMsg: any) => {
   let promise: Promise<any> = service({
-    url: '/login',
+    url: '/loginl',
     method: 'post',
     data: loginMsg,
   })

@@ -7,7 +7,7 @@ function isProd() {
 }
 
 // 设置HTTP请求的base url，需修改
-process.env.VUE_APP_BASE_API = isProd() ? '' : '';
+// process.env.VUE_APP_BASE_API = isProd() ? '' : '';
 
 module.exports = {
   publicPath: isProd() ? '/app-generator/' : '/', // 其中test要改为项目名称
@@ -100,31 +100,31 @@ module.exports = {
 //   configureWebpack: () => {}, //(Object | Function)
 //   chainWebpack: () => {},
   
-//   // 配置 webpack-dev-server 行为。
-//   devServer: {
-//     open: process.platform === 'darwin',
-//     host: '0.0.0.0',
-//     port: 8080,
-//     https: false,
-//     hotOnly: false,
-//     // 查阅 https://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli/cli-service.md#配置代理
-//     proxy: {
-//       '/api': {
-//         target: "http://app.rmsdmedia.com",
-//         changeOrigin: true,
-//         secure: false,
-//         pathRewrite: {
-//           "^/api": ""
-//         }
-//       },
+  // // 配置 webpack-dev-server 行为。
+  // devServer: {
+  //   open: process.platform === 'darwin',
+  //   host: '0.0.0.0',
+  //   port: 8080,
+  //   https: false,
+  //   hotOnly: false,
+  //   // 查阅 https://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli/cli-service.md#配置代理
+  //   proxy: {
+  //     '/api': {
+  //       target: "http://app.rmsdmedia.com",
+  //       changeOrigin: true,
+  //       secure: false,
+  //       pathRewrite: {
+  //         "^/api": ""
+  //       }
+  //     },
 
-//       '/foo': {
-//         target: '<other_url>'
-//       }
-//     }, 
-//     // string | Object
-//     before: app => {}
-//   },
+  //     '/foo': {
+  //       target: '<other_url>'
+  //     }
+  //   }, 
+  //   // string | Object
+  //   before: app => {}
+  // },
 
 //   // CSS 相关选项
 //   css: {

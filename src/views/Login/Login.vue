@@ -10,14 +10,10 @@
     <mu-container>
       <mu-form ref="form" :model="validateForm" class="mu-demo-form">
         <mu-form-item icon="account_circle" prop="username" :rules="usernameRules">
-          <mu-text-field placeholder="Username" v-model="validateForm.username" prop="username"></mu-text-field>
+          <mu-text-field placeholder="用户名" v-model="validateForm.username" prop="username"></mu-text-field>
         </mu-form-item>
         <mu-form-item  icon="locked" prop="password" :rules="passwordRules">
-            <mu-text-field  placeholder="Password" v-model="validateForm.password" prop="password" :action-icon="visibility ? 'visibility_off' : 'visibility'" :action-click="() => (visibility = !visibility)" :type="visibility ? 'text' : 'password'"></mu-text-field>
-        </mu-form-item>
-        <mu-form-item  icon="code" prop="captcha" :rules="captchaRules">
-          <mu-text-field v-model="validateForm.captcha" placeholder="Captcha"></mu-text-field>
-          <img class="captcha" :src="this.$store.state.captcha.captcha" alt="captcha" @click="changeCaptcha">
+            <mu-text-field  placeholder="密码" v-model="validateForm.password" prop="password" :action-icon="visibility ? 'visibility_off' : 'visibility'" :action-click="() => (visibility = !visibility)" :type="visibility ? 'text' : 'password'"></mu-text-field>
         </mu-form-item>
 
         <mu-form-item>
@@ -50,8 +46,8 @@ import router from '../../router/index';
 export default class Login extends Vue {
   
   private validateForm: ValidateForm = {
-    username: 'harry',
-    password: '123456',
+    username: '',
+    password: '',
     captcha: 'wksv'
   }
   private visibility = false
@@ -68,9 +64,9 @@ export default class Login extends Vue {
         { validate: (val: any) => !!val, message: '必须填写密码'},
         { validate: (val: any) => val.length >= 3 && val.length <= 10, message: '密码长度大于3小于10'}
       ],
-      captchaRules: [
-        { validate: (val: any) => !!val, message: '必须填写验证码'},
-      ]
+      // captchaRules: [
+      //   { validate: (val: any) => !!val, message: '必须填写验证码'},
+      // ]
     }
   }
 
@@ -80,7 +76,7 @@ export default class Login extends Vue {
     {
       await this.$store.dispatch('user/getUserInfo', this.validateForm)
       if (this.$store.state.user.userInfo) {
-        if (this.$store.state.user.userInfo.success === true) {
+        if (this.$store.state.user.userInfo.success === "true") {
           // 加密sessionStorage
           let userInfo: string = encrypt(JSON.stringify(this.$store.state.user.userInfo))
           // 存入sessionStorage
@@ -93,7 +89,7 @@ export default class Login extends Vue {
         this.openSimpleDialog('服务器错误!')
       } 
     } else {
-      this.openSimpleDialog('请填写完表格!')
+      this.openSimpleDialog('用户名或密码不能为空!')
     }
   }
 
@@ -116,7 +112,7 @@ export default class Login extends Vue {
   }
 
   mounted() {
-    this.changeCaptcha()
+    // this.changeCaptcha()
   }
 
 }

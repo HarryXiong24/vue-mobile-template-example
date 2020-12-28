@@ -6,18 +6,17 @@
 
     <div class="card">
       <mu-card style="width: 100%; max-width: 375px; margin: 0 auto;" raised>
-        <mu-card-header title="小猪猪发布">
+        <mu-card-header :title="movie.launcher">
           <mu-avatar slot="avatar">
             <img src="../../assets/images/logo.png">
           </mu-avatar>
         </mu-card-header>
-        <mu-card-media title="金刚川" sub-title="重温热血时代">
+        <mu-card-media :title="movie.movieName" :sub-title="movie.movieInfo">
           <img src="../../assets/images/logo.png">
         </mu-card-media>
         <mu-card-title title="评分9.2"></mu-card-title>
         <mu-card-text>
-          散落在指尖的阳光，我试着轻轻抓住光影的踪迹，它却在眉宇间投下一片淡淡的阴影。
-          调皮的阳光掀动了四月的心帘，温暖如约的歌声渐起。
+          {{movie.movieDetail}}
         </mu-card-text>
         <mu-card-actions class="action">
           <mu-button flat class="button" @click="comment">发布评论</mu-button>
@@ -56,13 +55,34 @@ export default class MovieDetail extends Vue {
 
   private movieComment: any = []
 
-  async getComment(movieID: any) {
+  private movieId: string = ''
+
+  private movieLists: any = []
+
+  private movie: any = {}
+
+
+  async getComment(Id: number) {
+    let movieID = {
+      ID: Id
+    }
     await this.$store.dispatch('movieComment/getMovieComment', movieID)
     this.movieComment = this.$store.state.movieComment.movieComment
+    await this.$store.dispatch('movieInfo/getMovieList')
+    this.movieLists = this.$store.state.movieInfo.movieList
+    this.findMovie(Id);
+  }
+
+  findMovie(Id: number) {
+    this.movieLists.forEach( (value: any) => {
+      if(Id = value.movieID) {
+        this.movie = value
+      }
+    })
   }
 
   mounted() {
-    this.getComment(this.$route.query.MovieId) 
+    this.getComment(Number(this.$route.query.MovieId)) 
   }
 
   comment() {

@@ -47,6 +47,8 @@
 import NormalTop from '../../components/NormalTop/NormalTop.vue';
 import { Component, Vue } from 'vue-property-decorator';
 import MovieComment from '../../components/MovieComment/MovieComment.vue';
+import sendComment from '../../api/comment';
+import { decrypt } from '../../util/crypto';
 
 @Component({
   components: {
@@ -59,14 +61,22 @@ export default class Comment extends Vue {
   public form: any = {
     date: new Date(),
     checkbox: [],
-    slider: 3,
+    slider: 9.0,
     textarea: '',
-    value: false
+    value: false,
   }
 
   public openSimple: boolean = false
 
   submit() {
+    let subForm = {
+      ID: Number(this.$route.query.CommentId),
+      name: JSON.parse(decrypt(sessionStorage.getItem('userInfo')!)).username,
+      comment: this.form.textarea,
+      date: this.form.date,
+      point: this.form.slider
+    }
+    sendComment(subForm)
     this.openSimpleDialog()
   }
 

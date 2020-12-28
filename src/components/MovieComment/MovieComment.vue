@@ -39,7 +39,8 @@ export default class MovieComment extends Vue {
   private showComment = true;
 
   judgeAdmin() {
-    if ( decrypt(sessionStorage.getItem("token")) === 'admin') {
+    
+    if ( JSON.parse(decrypt(sessionStorage.getItem("userInfo"))).token === 'admin') {
       this.adminShow = true;
     } else {
       this.adminShow = false
@@ -51,6 +52,10 @@ export default class MovieComment extends Vue {
   }
 
   deleteComment() {
+    let ID = {
+      
+    }
+
     this.showComment = false
   }
 

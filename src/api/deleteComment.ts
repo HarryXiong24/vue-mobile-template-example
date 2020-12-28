@@ -1,10 +1,10 @@
 import service from '../util/service'
 
-const reqMovieComment = (movieID: any) => {
+const sendComment = (ID: any) => {
   let promise: Promise<any> = service({
-    url: '/movieComment',
-    method: 'post',
-    data: movieID,
+    url: '/RemoveComment',
+    method: 'get',
+    data: ID,
   })
 
   return new Promise<any>( function (resolve, reject) {
@@ -15,8 +15,9 @@ const reqMovieComment = (movieID: any) => {
     }).catch(function (error) {
       //失败了调用reject()
       reject(error)
+      console.log(error)
     })
   })
 }
 
-export default reqMovieComment
+export default sendComment

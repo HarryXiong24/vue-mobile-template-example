@@ -94,9 +94,11 @@ export default class Register extends Vue {
 
           await this.$store.dispatch('register/getRegisterInfo', registerInfo)
 
-          if (this.$store.state.register.registerInfo.success) {
+          if (this.$store.state.register.registerInfo.success == "true") {
             this.openSuccess('注册成功!')
-          } 
+          } else {
+            this.openSimpleDialog('用户名重复!') 
+          }
 
         } else {
           this.openSimpleDialog('两次密码输入不一致!') 

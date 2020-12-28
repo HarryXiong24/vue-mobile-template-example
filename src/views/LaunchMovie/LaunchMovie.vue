@@ -54,6 +54,8 @@
 import NormalTop from '../../components/NormalTop/NormalTop.vue';
 import { Component, Vue } from 'vue-property-decorator';
 import MovieComment from '../../components/MovieComment/MovieComment.vue';
+// import { Random } from 'mockjs';
+import launchMovie from '../../api/launchMovie';
 
 @Component({
   components: {
@@ -81,6 +83,16 @@ export default class LaunchMovie extends Vue {
   submit() {
     if(this.form.movieName !== '' && this.form.movieActors !== '' && this.form.movieInfo !== ''
     && this.form.movieDetail !== '' && this.form.adminName !== '') {
+      let movieForm = {
+        movieName: this.form.movieName,
+        movieActor: this.form.movieActors,
+        movieInfo: this.form.movieInfo,
+        movieDetail: this.form.movieDetail,
+        moviePoint: Math.floor(Math.random()*10),
+        launcher: this.form.adminName
+      }
+
+      launchMovie(movieForm)
       this.openSuccess('新电影发布成功!')
     } else {
       this.openSimpleDialog('请填写完整的信息!')
