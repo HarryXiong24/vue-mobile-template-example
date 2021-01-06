@@ -1,45 +1,28 @@
 import Mock from 'mockjs'
-import { user, captcha, movieList, movieComment } from './data';
-import { Random } from 'mockjs';
+import { loginServer } from './login/loginServer';
+import { captchaServer } from './captcha/captchaServer';
+import { registerServe } from './register/register';
+import { movieListServer } from './movieList/movieListServer';
+// import { movieDetailServer } from './movieDetail/movieDetailServer';
+import { movieCommentServer } from './movieComment/movieCommentServer';
 
 // 返回登录的接口
-Mock.mock('/captcha', 'get', (options: any) => {
-  options.headers = {
-    captcha: Random.string(16)
-  }
+Mock.mock('/captcha', 'get', captchaServer)
 
-  return captcha
-})
+// 登录
+Mock.mock('/login', 'post', loginServer)
 
-Mock.mock('/login', 'post', (options: any) => {
-  let body = JSON.parse(options.body)
+// 注册
+Mock.mock('/register', 'post', registerServe)
 
-  if (body.username === "harry" && body.password === "123456") {
-    return user
-  } else {
-    return {
-      msg: "Incorrect username or password!"
-    }
-  }
+// 获取电影列表
+Mock.mock('/movieList', 'get', movieListServer)
 
-})
+// 获取电影详细信息
+// Mock.mock('/movieDetail', 'get', movieDetailServer)
 
-Mock.mock('/register', 'post', (options: any) => {
-  let body = JSON.parse(options.body)
-  console.log(body)
-  return {
-    success: true,
-    msg: "注册成功!"
-  }
-})
-
-Mock.mock('/movieInfo', 'get', (options: any) => {
-  return movieList
-})
-
-Mock.mock('/movieComment', 'get', (options: any) => {
-  return movieComment
-})
+// 获取电影评论
+Mock.mock('/movieComment', 'get', movieCommentServer)
 
 
 // export default ???  不需要向外暴露任何数据, 只需要保存能执行即可

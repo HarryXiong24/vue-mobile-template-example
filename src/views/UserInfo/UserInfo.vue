@@ -25,6 +25,17 @@
         </mu-list-item-action>
       </mu-list-item>
 
+      <mu-list-item button :ripple="true" class="item">
+        <mu-list-item-action>
+          <mu-icon value="fingerprint"></mu-icon>
+        </mu-list-item-action>
+        <mu-list-item-title>手机</mu-list-item-title>
+        <mu-list-item-title class="id">{{userInfo.phone}}</mu-list-item-title>
+        <mu-list-item-action>
+          <mu-icon value="info"></mu-icon>
+        </mu-list-item-action>
+      </mu-list-item>
+
     </mu-list>
 
   </div>  
@@ -48,7 +59,8 @@ export default class UserInfo extends Vue {
   }
 
   mounted() {
-    this.userInfo = JSON.parse(decrypt(sessionStorage.getItem('userInfo')!))
+    this.userInfo = JSON.parse(decrypt(sessionStorage.getItem('userInfo')))
+    console.log(this.userInfo)
   }
 }
 

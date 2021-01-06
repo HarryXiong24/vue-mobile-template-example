@@ -53,7 +53,7 @@
 <script lang="ts">
 import { decrypt } from '../../util/crypto';
 import { Prop, Component, Vue } from 'vue-property-decorator';
-import { user } from '../../../mock/data';
+
 
 @Component
 export default class SideBar extends Vue {

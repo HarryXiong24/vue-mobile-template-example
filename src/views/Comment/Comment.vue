@@ -47,7 +47,7 @@
 import NormalTop from '../../components/NormalTop/NormalTop.vue';
 import { Component, Vue } from 'vue-property-decorator';
 import MovieComment from '../../components/MovieComment/MovieComment.vue';
-import sendComment from '../../api/comment';
+import sendComment from '../../api/lauchComment';
 import { decrypt } from '../../util/crypto';
 
 @Component({

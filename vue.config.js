@@ -7,7 +7,7 @@ function isProd() {
 }
 
 // 设置HTTP请求的base url，需修改
-// process.env.VUE_APP_BASE_API = isProd() ? '' : '';
+process.env.VUE_APP_BASE_API = isProd() ? '' : '';
 
 module.exports = {
   publicPath: isProd() ? '/app-generator/' : '/', // 其中test要改为项目名称

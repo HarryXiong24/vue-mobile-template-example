@@ -5,7 +5,7 @@
 
     <mu-grid-list class="gridlist" :cols="3">
       <mu-grid-tile v-for="(tile, index) in topList" :key="index">
-        <img :src="tile.image" >
+        <img :src="tile.image" @click="go">
         <span slot="title">{{tile.title}}</span>
         <span slot="subTitle">by <b>{{tile.author}}</b></span>
         <mu-button slot="action" icon>

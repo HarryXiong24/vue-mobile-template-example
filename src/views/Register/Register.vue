@@ -88,16 +88,16 @@ export default class Register extends Vue {
         if (this.validateForm.password === this.validateForm.validatePassword) {
           
           let registerInfo = {
-            userName: this.validateForm.username,
+            username: this.validateForm.username,
             password: this.validateForm.password
           }
 
           await this.$store.dispatch('register/getRegisterInfo', registerInfo)
 
-          if (this.$store.state.register.registerInfo.success == "true") {
-            this.openSuccess('注册成功!')
+          if (this.$store.state.register.registerInfo.success == true) {
+            this.openSuccess(this.$store.state.register.registerInfo.msg)
           } else {
-            this.openSimpleDialog('用户名重复!') 
+            this.openSimpleDialog(this.$store.state.register.registerInfo.msg) 
           }
 
         } else {

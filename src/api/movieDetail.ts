@@ -1,16 +1,15 @@
 import service from '../util/service'
 
-const sendComment = (form: any) => {
+const movieDetail = (movieID: any) => {
   let promise: Promise<any> = service({
-    url: '/LaunchComment',
-    method: 'post',
-    data: form,
+    url: '/movieDetail',
+    method: 'get',
+    data: movieID,
   })
 
   return new Promise<any>( function (resolve, reject) {
     promise.then(function (response) {
       // 成功了调用resolve()
-      console.log(response)
       resolve(response)
     }).catch(function (error) {
       //失败了调用reject()
@@ -20,4 +19,4 @@ const sendComment = (form: any) => {
   })
 }
 
-export default sendComment
+export default movieDetail

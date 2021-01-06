@@ -14,7 +14,7 @@
         <mu-card-media :title="movie.movieName" :sub-title="movie.movieInfo">
           <img src="../../assets/images/logo.png">
         </mu-card-media>
-        <mu-card-title title="评分9.2"></mu-card-title>
+        <mu-card-title :title="movie.moviePoint"></mu-card-title>
         <mu-card-text>
           {{movie.movieDetail}}
         </mu-card-text>
@@ -69,10 +69,6 @@ export default class MovieDetail extends Vue {
     await this.$store.dispatch('movieComment/getMovieComment', movieID)
     this.movieComment = this.$store.state.movieComment.movieComment
 
-    this.movieComment.forEach( (val: any) => {
-      val.date = this.changeTime(val.date)
-    })
-
     await this.$store.dispatch('movieInfo/getMovieList')
     this.movieLists = this.$store.state.movieInfo.movieList
     this.findMovie(Id);
@@ -93,19 +89,6 @@ export default class MovieDetail extends Vue {
   comment() {
     let CommentId = this.$route.query.MovieId
     this.$router.push(`/Comment?CommentId=${CommentId}`)
-  }
-
-  changeTime(data: any) {
-    let date = new Date(data)
-
-    let Y = date.getFullYear() + '-'
-    let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-'
-    let D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' '
-    let h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':'
-    let m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':'
-    let s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds())
-
-    return Y + M + D + h + m + s
   }
 
   // async getMessageContent() {

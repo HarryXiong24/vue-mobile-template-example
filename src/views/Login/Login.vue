@@ -46,8 +46,8 @@ import router from '../../router/index';
 export default class Login extends Vue {
   
   private validateForm: ValidateForm = {
-    username: '',
-    password: '',
+    username: 'harry',
+    password: '123456',
     captcha: 'wksv'
   }
   private visibility = false
@@ -76,9 +76,9 @@ export default class Login extends Vue {
     {
       await this.$store.dispatch('user/getUserInfo', this.validateForm)
       if (this.$store.state.user.userInfo) {
-        if (this.$store.state.user.userInfo.success === "true") {
+        if (this.$store.state.user.userInfo.success === true) {
           // 加密sessionStorage
-          let userInfo: string = encrypt(JSON.stringify(this.$store.state.user.userInfo))
+          let userInfo: string = encrypt(JSON.stringify(this.$store.state.user.userInfo.userInfo))
           // 存入sessionStorage
           sessionStorage.setItem("userInfo", userInfo)
           this.$router.replace('/Init')
