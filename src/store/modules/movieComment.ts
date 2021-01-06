@@ -19,7 +19,6 @@ const actions = {
     // 发送异步ajax请求
     const result = await reqMovieComment(movieID)
     const movieComment = result.data
-    console.log(movieComment)
     // 提交一个mutation
     commit('SET_MOVIELIST', {movieComment})
   },

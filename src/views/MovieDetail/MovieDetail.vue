@@ -77,6 +77,7 @@ export default class MovieDetail extends Vue {
   findMovie(Id: number) {
     this.movieLists.forEach( (value: any) => {
       if(Id = value.movieID) {
+        value.moviePoint = "综合评分 " + value.moviePoint
         this.movie = value
       }
     })

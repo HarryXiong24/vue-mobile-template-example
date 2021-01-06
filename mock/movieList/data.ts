@@ -8,6 +8,7 @@ export const movieList: any = [
     movieInfo: "让你重温那个激荡磅礴的岁月",
     moviePoint: 9.2,
     movieDetail: "重温一段热血年华",
+    launcher: "小猪猪"
   },
   {
     movieID: 2,
@@ -16,6 +17,7 @@ export const movieList: any = [
     movieInfo: "让你重温那个激荡磅礴的岁月",
     moviePoint: 9.2,
     movieDetail: "重温一段热血年华",
+    launcher: "小猪猪"
   },
   {
     movieID: 3,
@@ -24,6 +26,7 @@ export const movieList: any = [
     movieInfo: "让你重温那个激荡磅礴的岁月",
     moviePoint: 9.2,
     movieDetail: "重温一段热血年华",
+    launcher: "小猪猪"
   },
   {
     movieID: 4,
@@ -32,6 +35,7 @@ export const movieList: any = [
     movieInfo: "让你重温那个激荡磅礴的岁月",
     moviePoint: 9.2,
     movieDetail: "重温一段热血年华",
+    launcher: "小猪猪"
   },
   {
     movieID: 5,
@@ -40,6 +44,7 @@ export const movieList: any = [
     movieInfo: "让你重温那个激荡磅礴的岁月",
     moviePoint: 9.2,
     movieDetail: "重温一段热血年华",
+    launcher: "小猪猪"
   },
   {
     movieID: 6,
@@ -48,5 +53,6 @@ export const movieList: any = [
     movieInfo: "让你重温那个激荡磅礴的岁月",
     moviePoint: 9.2,
     movieDetail: "重温一段热血年华",
+    launcher: "小猪猪"
   },
 ]
