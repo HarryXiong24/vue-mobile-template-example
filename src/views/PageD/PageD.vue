@@ -96,7 +96,6 @@ export default class PageD extends Vue {
     let result = await getLineData()
     let lineData = result.data
 
-    console.log(lineData)
 
     this.lineChartOptions = {
     tooltip: {

@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
 
-    <img src="../../assets/images/logo.png" alt="LoginLogo" class="logo">
+    <img src="../../assets/images/logo3.png" alt="LoginLogo" class="logo">
 
     <div class="title-container">
       <p>在线影评系统</p>
@@ -16,7 +16,7 @@
             <mu-text-field  placeholder="密码" v-model="validateForm.password" prop="password" :action-icon="visibility ? 'visibility_off' : 'visibility'" :action-click="() => (visibility = !visibility)" :type="visibility ? 'text' : 'password'"></mu-text-field>
         </mu-form-item>
 
-        <mu-form-item>
+        <mu-form-item class="button">
           <mu-button color="indigo400" @click="submit" round full-width ripple>登录</mu-button>
           <mu-button color="indigo400" @click="register" round full-width ripple>注册</mu-button>
         </mu-form-item>
@@ -138,14 +138,14 @@ export default class Login extends Vue {
 
     .logo {
       width: 600px;
-      height: 400px;
-      margin: 280px auto 220px auto;
+      height: 600px;
+      margin: 260px auto 200px auto;
     }
 
     .title-container { 
       font-size: 140px;
       color: $font;
-      margin: 0px auto 200px auto;
+      margin: 0px auto 160px auto;
       text-align: center;
       font-weight: bold;
     }
@@ -168,6 +168,10 @@ export default class Login extends Vue {
         span {
           margin: 0 20px;
         }
+      }
+
+      .button {
+        margin-top: 100px;
       }
     }
 

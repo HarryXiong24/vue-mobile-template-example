@@ -6,12 +6,12 @@
 
     <div class="card">
       <mu-card style="width: 100%; max-width: 375px; margin: 0 auto;" raised>
-        <mu-card-header :title="movie.launcher">
+        <mu-card-header :title="movie.launcher" :sub-title="movie.launchTime">
           <mu-avatar slot="avatar">
             <img src="../../assets/images/logo.png">
           </mu-avatar>
         </mu-card-header>
-        <mu-card-media :title="movie.movieName" :sub-title="movie.movieInfo">
+        <mu-card-media :title="movie.movieName" :sub-title="movie.movieActors">
           <img src="../../assets/images/logo.png">
         </mu-card-media>
         <mu-card-title :title="movie.moviePoint"></mu-card-title>
@@ -76,7 +76,7 @@ export default class MovieDetail extends Vue {
 
   findMovie(Id: number) {
     this.movieLists.forEach( (value: any) => {
-      if(Id = value.movieID) {
+      if(Id === value.movieID) {
         value.moviePoint = "综合评分 " + value.moviePoint
         this.movie = value
       }

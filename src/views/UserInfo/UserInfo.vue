@@ -60,7 +60,6 @@ export default class UserInfo extends Vue {
 
   mounted() {
     this.userInfo = JSON.parse(decrypt(sessionStorage.getItem('userInfo')))
-    console.log(this.userInfo)
   }
 }
 
