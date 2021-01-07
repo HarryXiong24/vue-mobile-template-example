@@ -1,27 +1,6 @@
-export let lineData = {
-  tooltip: {
-    trigger: "axis",
-  },
-  legend: {
-    data: ["复仇者联盟", "蝙蝠侠", "蜘蛛侠", "海上钢琴师", "赛尔号"],
-  },
-  grid: {
-    left: "3%",
-    right: "4%",
-    bottom: "3%",
-    containLabel: true,
-  },
-  toolbox: {
-
-  },
-  xAxis: {
-    type: "category",
-    boundaryGap: false,
-    data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
-  },
-  yAxis: {
-    type: "value",
-  },
+export const lineData = {
+  legend: ["复仇者联盟", "蝙蝠侠", "蜘蛛侠", "海上钢琴师", "赛尔号"],
+  xAxis: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
   series: [
     {
       name: "复仇者联盟",
@@ -53,5 +32,5 @@ export let lineData = {
       stack: "总量",
       data: [820, 932, 1411, 844, 1290, 120, 1320],
     },
-  ],
-};
+  ]
+}

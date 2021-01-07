@@ -1,4 +1,4 @@
-let hours = [
+export let hours = [
   "12a",
   "1a",
   "2a",
@@ -24,7 +24,8 @@ let hours = [
   "10p",
   "11p",
 ];
-let days = [
+
+export let days = [
   "周一",
   "周二",
   "周三",
@@ -34,7 +35,7 @@ let days = [
   "周日",
 ];
 
-let data: any = [
+export let data: any = [
   [0, 0, 5],
   [0, 1, 1],
   [0, 2, 0],
@@ -204,56 +205,3 @@ let data: any = [
   [6, 22, 2],
   [6, 23, 6],
 ];
-
-data = data.map(function(item: any) {
-  return [item[1], item[0], item[2] || "-"];
-});
-
-export let heatMapData = {
-  tooltip: {
-    position: "top",
-  },
-  animation: false,
-  grid: {
-    height: "50%",
-    top: "10%",
-  },
-  xAxis: {
-    type: "category",
-    data: hours,
-    splitArea: {
-      show: true,
-    },
-  },
-  yAxis: {
-    type: "category",
-    data: days,
-    splitArea: {
-      show: true,
-    },
-  },
-  visualMap: {
-    min: 0,
-    max: 10,
-    calculable: true,
-    orient: "horizontal",
-    left: "center",
-    bottom: "15%",
-  },
-  series: [
-    {
-      name: "当日上座率",
-      type: "heatmap",
-      data: data,
-      label: {
-        show: true,
-      },
-      emphasis: {
-        itemStyle: {
-          shadowBlur: 10,
-          shadowColor: "rgba(0, 0, 0, 0.5)",
-        },
-      },
-    },
-  ],
-};

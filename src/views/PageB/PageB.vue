@@ -3,16 +3,32 @@
 
     <p class="subTitle1">大片Top榜</p>
 
-    <mu-grid-list class="gridlist" :cols="3">
-      <mu-grid-tile v-for="(tile, index) in topList" :key="index">
-        <img :src="tile.image">
-        <span slot="title">{{tile.title}}</span>
-        <span slot="subTitle">by <b>{{tile.author}}</b></span>
-        <mu-button slot="action" icon>
-          <mu-icon value="star_border"></mu-icon>
-        </mu-button>
-      </mu-grid-tile>
-    </mu-grid-list>
+      <mu-carousel transition="fade" interval="2000" class="carousel">
+
+        <mu-icon value="navigate_before" slot="left"></mu-icon>
+        <mu-icon value="navigate_next" slot="right"></mu-icon>
+        <template slot="indicator" slot-scope="{ index, active }">
+          <mu-button icon class="mu-carousel-indicator-button" :class="{'mu-carousel-indicator-button__active': active}" @click="changeActive(index)">
+            <span class="rect-indicator"></span>
+          </mu-button>
+        </template>
+
+        <mu-carousel-item class="item">
+          <img :src="carouselImg1" class="img">
+        </mu-carousel-item>
+        <mu-carousel-item class="item">
+          <img :src="carouselImg2" class="img">
+        </mu-carousel-item>
+        <mu-carousel-item class="item">
+          <img :src="carouselImg3" class="img">
+        </mu-carousel-item>
+        <mu-carousel-item class="item">
+          <img :src="carouselImg4" class="img">
+        </mu-carousel-item>
+        <mu-carousel-item class="item">
+          <img :src="carouselImg5" class="img">
+        </mu-carousel-item>
+      </mu-carousel>
 
     <p class="subTitle1">大片列表</p>
 
@@ -24,12 +40,11 @@
 
 <script lang="ts">
 
-import P1 from '../../assets/images/grid/1.jpg';
-import P2 from '../../assets/images/grid/2.jpg';
-import P3 from '../../assets/images/grid/3.jpg';
-import P4 from '../../assets/images/grid/4.jpg';
-import P5 from '../../assets/images/grid/5.jpg';
-import P6 from '../../assets/images/grid/5.jpg';
+import carouselImg1 from '../../assets/images/post/1.jpg';
+import carouselImg2 from '../../assets/images/post/2.jpg';
+import carouselImg3 from '../../assets/images/post/3.jpg';
+import carouselImg4 from '../../assets/images/post/4.jpg';
+import carouselImg5 from '../../assets/images/post/5.jpg';
 
 import MovieList from '../../components/MovieList/MovieList.vue';
 import { Prop, Component, Vue } from 'vue-property-decorator';
@@ -41,32 +56,12 @@ import { Prop, Component, Vue } from 'vue-property-decorator';
 })
 export default class PageB extends Vue {
 
-  public topList: any = [{
-    image: P1,
-    title: 'Breakfast',
-    author: 'Myron'
-  }, {
-    image: P2,
-    title: 'Burger',
-    author: 'Linyu'
-  }, {
-    image: P3,
-    title: 'Camera',
-    author: 'ruolin'
-  }, {
-    image: P4,
-    title: 'Hats',
-    author: 'kakali'
-  }, {
-    image: P5,
-    title: 'Honey',
-    author: 'yuyang'
-  }, {
-    image: P6,
-    title: 'Morning',
-    author: 'mokayi'
-  }]
-  
+  public carouselImg1: any = carouselImg1
+  public carouselImg2: any = carouselImg2
+  public carouselImg3: any = carouselImg3
+  public carouselImg4: any = carouselImg4
+  public carouselImg5: any = carouselImg5
+
   public movieList: any = []
 
   async getList() {
@@ -91,6 +86,17 @@ export default class PageB extends Vue {
         content: '';
         border-left: 20px #673ab7 solid;
         padding-left: 30px;
+      }
+    }
+    
+    .carousel {
+      height: 1200px;
+      width: 100%;
+      .item {
+        .img {
+          height: 1200px;
+          width: 100%;
+        }
       }
     }
 

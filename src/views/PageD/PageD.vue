@@ -2,80 +2,17 @@
   <div class="pageD">
 
     <mu-tabs :value.sync="active1" inverse color="secondary" text-color="rgba(0, 0, 0, .54)"  center full-width>
-      <mu-tab>Top榜</mu-tab>
       <mu-tab>大片票房</mu-tab>
       <mu-tab>观影热度</mu-tab>
     </mu-tabs>
 
-    <mu-row v-if="active1 === 0">
-      <p class="subTitle1">Top榜</p>
-      <mu-col span="12" lg="4" sm="6">
-        <mu-carousel transition="fade" interval="2000" class="carousel">
-
-          <mu-icon value="navigate_before" slot="left"></mu-icon>
-          <mu-icon value="navigate_next" slot="right"></mu-icon>
-          <template slot="indicator" slot-scope="{ index, active }">
-            <mu-button icon class="mu-carousel-indicator-button" :class="{'mu-carousel-indicator-button__active': active}" @click="changeActive(index)">
-              <span class="rect-indicator"></span>
-            </mu-button>
-          </template>
-
-          <mu-carousel-item class="item">
-            <img :src="carouselImg1" class="img">
-          </mu-carousel-item>
-          <mu-carousel-item class="item">
-            <img :src="carouselImg2" class="img">
-          </mu-carousel-item>
-          <mu-carousel-item class="item">
-            <img :src="carouselImg3" class="img">
-          </mu-carousel-item>
-          <mu-carousel-item class="item">
-            <img :src="carouselImg4" class="img">
-          </mu-carousel-item>
-          <mu-carousel-item class="item">
-            <img :src="carouselImg5" class="img">
-          </mu-carousel-item>
-        </mu-carousel>
-      </mu-col>
-
-      <p class="subTitle1">动作榜</p>
-      <mu-col span="12" lg="4" sm="6">
-        <mu-carousel transition="fade" interval="2500" class="carousel">
-
-          <mu-icon value="navigate_before" slot="left"></mu-icon>
-          <mu-icon value="navigate_next" slot="right"></mu-icon>
-          <template slot="indicator" slot-scope="{ index, active }">
-            <mu-button icon class="mu-carousel-indicator-button" :class="{'mu-carousel-indicator-button__active': active}" @click="changeActive(index)">
-              <span class="rect-indicator"></span>
-            </mu-button>
-          </template>
-
-          <mu-carousel-item class="item">
-            <img :src="carouselImga" class="img">
-          </mu-carousel-item>
-          <mu-carousel-item class="item">
-            <img :src="carouselImgb" class="img">
-          </mu-carousel-item>
-          <mu-carousel-item class="item">
-            <img :src="carouselImgc" class="img">
-          </mu-carousel-item>
-          <mu-carousel-item class="item">
-            <img :src="carouselImgd" class="img">
-          </mu-carousel-item>
-          <mu-carousel-item class="item">
-            <img :src="carouselImge" class="img">
-          </mu-carousel-item>
-        </mu-carousel>
-      </mu-col>
-    </mu-row>
-
-    <div class="chart" v-if="active1 === 1">
+    <div class="chart" v-if="active1 === 0">
       <p class="subTitle1">大片票房</p>
       <v-chart :options="lineChartOptions" class="echarts"></v-chart>
     </div>
 
 
-    <div class="chart" v-if="active1 === 2">
+    <div class="chart" v-if="active1 === 1">
       <p class="subTitle1">近期观影信息</p>
       <v-chart :options="heatMapOptions" class="echarts2"></v-chart>
     </div>
@@ -85,41 +22,114 @@
 
 <script lang="ts">
 
-import carouselImg1 from '../../assets/images/post/1.jpg';
-import carouselImg2 from '../../assets/images/post/2.jpg';
-import carouselImg3 from '../../assets/images/post/3.jpg';
-import carouselImg4 from '../../assets/images/post/4.jpg';
-import carouselImg5 from '../../assets/images/post/5.jpg';
-import carouselImga from '../../assets/images/post/a.jpg';
-import carouselImgb from '../../assets/images/post/b.jpg';
-import carouselImgc from '../../assets/images/post/c.jpg';
-import carouselImgd from '../../assets/images/post/d.jpg';
-import carouselImge from '../../assets/images/post/e.jpg';
-
 import { Prop, Component, Vue } from 'vue-property-decorator';
-import { lineData } from '../../util/lineData';
-import { heatMapData } from '../../util/heatMapData';
+import { lineData } from './lineData';
+import getHeatMap from '../../api/heatMap';
+import getLineData from '../../api/lineData';
 
 @Component
 export default class PageD extends Vue {
 
-  public carouselImg1: any = carouselImg1
-  public carouselImg2: any = carouselImg2
-  public carouselImg3: any = carouselImg3
-  public carouselImg4: any = carouselImg4
-  public carouselImg5: any = carouselImg5
-  public carouselImga: any = carouselImga
-  public carouselImgb: any = carouselImgb
-  public carouselImgc: any = carouselImgc
-  public carouselImgd: any = carouselImgd
-  public carouselImge: any = carouselImge
+  public lineChartOptions: any = {}
+  public heatMapOptions: any = {}
 
-
-  public lineChartOptions: any = lineData; 
-  public heatMapOptions: any = heatMapData;
 
   public active1: number = 0;
 
+  async getHeatMap() {
+    let result = await getHeatMap()
+    let heatMapData = result.data
+    heatMapData.data = heatMapData.data.map(function(item: any) {
+      return [item[1], item[0], item[2] || "-"];
+    });
+    this.heatMapOptions = {
+      tooltip: {
+        position: "top",
+      },
+      animation: false,
+      grid: {
+        height: "50%",
+        top: "10%",
+      },
+      xAxis: {
+        type: "category",
+        data: heatMapData.hours,
+        splitArea: {
+          show: true,
+        },
+      },
+      yAxis: {
+        type: "category",
+        data: heatMapData.days,
+        splitArea: {
+          show: true,
+        },
+      },
+      visualMap: {
+        min: 0,
+        max: 10,
+        calculable: true,
+        orient: "horizontal",
+        left: "center",
+        bottom: "15%",
+      },
+      series: [
+        {
+          name: "当日上座率",
+          type: "heatmap",
+          data: heatMapData.data,
+          label: {
+            show: true,
+          },
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowColor: "rgba(0, 0, 0, 0.5)",
+            },
+          },
+        },
+      ],
+    };
+  }
+
+  async getLineData() {
+    let result = await getLineData()
+    let lineData = result.data
+
+    console.log(lineData)
+
+    this.lineChartOptions = {
+    tooltip: {
+      trigger: "axis",
+    },
+    legend: {
+      data: lineData.legend,
+    },
+    grid: {
+      left: "3%",
+      right: "4%",
+      bottom: "3%",
+      containLabel: true,
+    },
+    toolbox: {
+
+    },
+    xAxis: {
+      type: "category",
+      boundaryGap: false,
+      data: lineData.xAxis,
+    },
+    yAxis: {
+      type: "value",
+    },
+    series: lineData.series
+  };
+  }
+
+  created() {
+    this.getHeatMap()
+    this.getLineData()
+  }
 }
 </script>
 
