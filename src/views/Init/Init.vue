@@ -10,6 +10,7 @@
     </mu-row>
     <!-- 占位用 -->
     <div class="bottom"></div>
+
     <mu-row justify-content="center" class="footerGuide">
       <mu-col span="12">
         <mu-bottom-nav :value.sync="shift" ripple color="amber800" @change="getHead">
@@ -18,6 +19,7 @@
         </mu-bottom-nav>
       </mu-col>
     </mu-row>
+
   </div>
 </template>
 
