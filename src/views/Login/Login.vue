@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
 
-    <img src="../../assets/images/logo.png" alt="LoginLogo" class="logo">
+    <img src="../../assets/images/logo3.png" alt="LoginLogo" class="logo">
 
     <div class="title-container">
       <p>在线影评系统</p>
@@ -138,8 +138,8 @@ export default class Login extends Vue {
 
     .logo {
       width: 600px;
-      height: 400px;
-      margin: 280px auto 220px auto;
+      height: 600px;
+      margin: 280px auto 200px auto;
     }
 
     .title-container { 

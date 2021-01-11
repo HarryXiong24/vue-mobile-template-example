@@ -12,12 +12,7 @@
         <mu-icon value="add" size="30"></mu-icon>
       </mu-button>
       <mu-list slot="content">
-        <mu-list-item button>
-          <mu-list-item-content>
-            <mu-list-item-title>扫一扫</mu-list-item-title>
-          </mu-list-item-content>
-        </mu-list-item>
-        <mu-list-item button>
+        <mu-list-item button @click="buyTickets">
           <mu-list-item-content>
             <mu-list-item-title>在线购票</mu-list-item-title>
           </mu-list-item-content>
@@ -41,6 +36,10 @@ export default class NavigationTop extends Vue {
   @Prop(String) private title!: string
   private open: boolean = false
   private add: boolean = false
+
+  buyTickets() {
+    window.location.href = 'https://m.maoyan.com/#movie'
+  }
 }
 </script>
 
